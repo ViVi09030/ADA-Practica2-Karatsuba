@@ -48,7 +48,6 @@ ADA-Practica2-Karatsuba/
 │
 ├── resultados/          (generado por el benchmark)
 │   ├── tiempos.csv
-│   ├── tabla_tiempos.md
 │   └── grafica_tiempos.svg
 │
 ├── CMakeLists.txt
@@ -68,7 +67,7 @@ ADA-Practica2-Karatsuba/
 | `karatsuba.cpp` | Implementa el algoritmo recursivo de Karatsuba. |
 | `main.cpp` | Contiene el punto de entrada e integración del programa. |
 | `pruebas.cpp` | Contiene las pruebas de correctitud y los casos límite. |
-| `graficar.cpp` | Genera la gráfica (SVG) y la tabla de tiempos a partir del CSV del benchmark. |
+| `graficar.cpp` | Genera la gráfica (SVG) a partir del CSV del benchmark. |
 | `CMakeLists.txt` | Configuración de compilación con CMake (tres ejecutables: `pruebas`, `benchmark` y `graficar`). |
 | `decisiones_implementacion.md` | Documenta las decisiones técnicas tomadas durante el desarrollo. |
 
@@ -89,7 +88,7 @@ g++ -std=c++17 -O2 -Wall -Isrc tests/pruebas.cpp src/operaciones.cpp src/multipl
 g++ -std=c++17 -O2 -Wall -Isrc src/main.cpp src/operaciones.cpp src/multiplicacion_clasica.cpp src/karatsuba.cpp -o build/benchmark
 ./build/benchmark
 
-# Grafica y tabla a partir de resultados/tiempos.csv
+# Grafica a partir de resultados/tiempos.csv
 g++ -std=c++17 -O2 -Wall scripts/graficar.cpp -o build/graficar
 ./build/graficar
 ```
@@ -110,10 +109,9 @@ En CLion basta con abrir la carpeta del repositorio. Para medir tiempos se debe 
 
 ### Salidas
 
-- `build/pruebas` imprime el resultado de cada categoría de prueba (`[ OK ]` o `[FALLA]` con el detalle del caso). Termina con código 0 si todas las pruebas pasan.
-- `build/benchmark` imprime la tabla de tiempos y el punto de cruce, y guarda los datos en `resultados/tiempos.csv`. Tarda unos minutos.
-
-- `build/graficar` lee `resultados/tiempos.csv` y genera `resultados/grafica_tiempos.svg` (se abre en cualquier navegador y se puede insertar en Word) y `resultados/tabla_tiempos.md`. Además imprime el punto de cruce y el exponente empírico de cada algoritmo (pendiente en escala log-log).
+- `build/pruebas` imprime los casos correctos de cada categoría y el total. Termina con código 0 si todas las pruebas pasan.
+- `build/benchmark` imprime la tabla de tiempos y el punto de cruce, y guarda los datos en `resultados/tiempos.csv`. Tarda alrededor de un minuto.
+- `build/graficar` lee `resultados/tiempos.csv` y genera `resultados/grafica_tiempos.svg` (se abre en cualquier navegador y se puede insertar en Word). Además imprime el punto de cruce y el exponente empírico de cada algoritmo (pendiente en escala log-log).
 
 ## 6. Organización del equipo
 
