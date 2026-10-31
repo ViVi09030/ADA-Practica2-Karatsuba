@@ -9,6 +9,9 @@
 #include "operaciones.h"
 #include <algorithm>
 
+// Tamaño máximo (en dígitos) que se resuelve con multiplicación directa
+const int CASO_BASE = 1;
+
 // Función auxiliar para encontrar la siguiente potencia de 2
 int siguientePotenciaDe2(int n) {
     int pot = 1;
@@ -18,23 +21,21 @@ int siguientePotenciaDe2(int n) {
     return pot;
 }
 
-string karatsuba(const string& A, const string& B) {
-    // Normalizar para evitar ceros sobrantes en la evaluación del caso base
+// Recursión de Karatsuba sobre operandos de longitud variable
+string karatsubaRecursivo(const string& A, const string& B) {
     string numA = normalizar(A);
     string numB = normalizar(B);
 
-    // Caso base: 1 dígito o si alguno es "0"
+    // Caso base: números pequeños o si alguno es "0"
     if (numA == "0" || numB == "0") return "0";
-    if (numA.size() <= 1 && numB.size() <= 1) {
+    int n = max(numA.size(), numB.size());
+    if (n <= CASO_BASE) {
         return multiplicacionClasica(numA, numB);
     }
 
-    // Igualar longitudes a la misma potencia de 2 mediante relleno de ceros a la izquierda
-    int maxLen = max(numA.size(), numB.size());
-    int n = siguientePotenciaDe2(maxLen);
-
-    if (numA.size() < n) numA = string(n - numA.size(), '0') + numA;
-    if (numB.size() < n) numB = string(n - numB.size(), '0') + numB;
+    // Igualar longitudes (sin volver a llevar a potencia de 2: x1 + x0 puede tener m + 1 dígitos)
+    numA = string(n - numA.size(), '0') + numA;
+    numB = string(n - numB.size(), '0') + numB;
 
     int m = n / 2;
 
@@ -48,12 +49,12 @@ string karatsuba(const string& A, const string& B) {
     string y0 = partesB.second;
 
     // Tres llamadas recursivas
-    string P1 = karatsuba(x1, y1);
-    string P2 = karatsuba(x0, y0);
-    
+    string P1 = karatsubaRecursivo(x1, y1);
+    string P2 = karatsubaRecursivo(x0, y0);
+
     string sumaA = sumar(x1, x0);
     string sumaB = sumar(y1, y0);
-    string P3 = karatsuba(sumaA, sumaB);
+    string P3 = karatsubaRecursivo(sumaA, sumaB);
 
     // Calcular el término central respetando el orden para evitar negativos intermedios: (P3 - P1) - P2
     string resta1 = restar(P3, P1);
@@ -66,4 +67,18 @@ string karatsuba(const string& A, const string& B) {
     string resultado = sumar(sumar(term1, term2), P2);
 
     return normalizar(resultado);
+}
+
+string karatsuba(const string& A, const string& B) {
+    string numA = normalizar(A);
+    string numB = normalizar(B);
+
+    // Igualar longitudes a la misma potencia de 2 mediante relleno de ceros a la izquierda
+    int maxLen = max(numA.size(), numB.size());
+    int n = siguientePotenciaDe2(maxLen);
+
+    numA = string(n - numA.size(), '0') + numA;
+    numB = string(n - numB.size(), '0') + numB;
+
+    return karatsubaRecursivo(numA, numB);
 }
