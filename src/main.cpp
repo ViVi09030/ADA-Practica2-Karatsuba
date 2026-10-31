@@ -26,7 +26,7 @@ void validar(const string& caso, const string& A, const string& B) {
 }
 
 int main() {
-    cout << "--- VALIDACION DE CORRECTITUD ---\n\n";
+    cout << "VALIDACION DE CORRECTITUD \n\n";
 
     validar("Números de 1 dígito", "7", "8");
     validar("Muchos ceros a la izquierda", "00000123", "000456");
