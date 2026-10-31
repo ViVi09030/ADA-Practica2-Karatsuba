@@ -43,6 +43,15 @@ ADA-Practica2-Karatsuba/
 ├── docs/
 │   └── decisiones_implementacion.md
 │
+├── scripts/
+│   └── graficar.cpp
+│
+├── resultados/          (generado por el benchmark)
+│   ├── tiempos.csv
+│   ├── tabla_tiempos.md
+│   └── grafica_tiempos.svg
+│
+├── CMakeLists.txt
 ├── .gitignore
 └── README.md
 ```
@@ -59,13 +68,52 @@ ADA-Practica2-Karatsuba/
 | `karatsuba.cpp` | Implementa el algoritmo recursivo de Karatsuba. |
 | `main.cpp` | Contiene el punto de entrada e integración del programa. |
 | `pruebas.cpp` | Contiene las pruebas de correctitud y los casos límite. |
+| `graficar.cpp` | Genera la gráfica (SVG) y la tabla de tiempos a partir del CSV del benchmark. |
+| `CMakeLists.txt` | Configuración de compilación con CMake (tres ejecutables: `pruebas`, `benchmark` y `graficar`). |
 | `decisiones_implementacion.md` | Documenta las decisiones técnicas tomadas durante el desarrollo. |
 
 ## 5. Compilación y ejecución
 
-La compilación se realizará desde la raíz del repositorio utilizando el estándar C++17.
+Todos los comandos se ejecutan desde la raíz del repositorio. Se requiere un compilador con soporte de C++17 (GCC, Clang o MinGW en Windows). Se generan tres ejecutables: las **pruebas de correctitud**, el **experimento de tiempos** y el **generador de la gráfica**.
 
-Una vez integrados los componentes del proyecto, se incluirán los comandos definitivos de compilación y ejecución.
+### Opción A: g++ directamente
+
+```bash
+mkdir -p build      # en PowerShell: mkdir build -Force
+
+# Pruebas de correctitud (Karatsuba vs. clásica y casos de borde)
+g++ -std=c++17 -O2 -Wall -Isrc tests/pruebas.cpp src/operaciones.cpp src/multiplicacion_clasica.cpp src/karatsuba.cpp -o build/pruebas
+./build/pruebas
+
+# Experimento de tiempos (2 a 4096 dígitos)
+g++ -std=c++17 -O2 -Wall -Isrc src/main.cpp src/operaciones.cpp src/multiplicacion_clasica.cpp src/karatsuba.cpp -o build/benchmark
+./build/benchmark
+
+# Grafica y tabla a partir de resultados/tiempos.csv
+g++ -std=c++17 -O2 -Wall scripts/graficar.cpp -o build/graficar
+./build/graficar
+```
+
+En Windows los ejecutables quedan como `build\pruebas.exe`, `build\benchmark.exe` y `build\graficar.exe`.
+
+### Opción B: CMake (CLion, Visual Studio Code, terminal)
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+./build/pruebas
+./build/benchmark
+./build/graficar
+```
+
+En CLion basta con abrir la carpeta del repositorio. Para medir tiempos se debe usar el perfil **Release**, porque el perfil Debug compila sin optimización y los tiempos no son representativos.
+
+### Salidas
+
+- `build/pruebas` imprime el resultado de cada categoría de prueba (`[ OK ]` o `[FALLA]` con el detalle del caso). Termina con código 0 si todas las pruebas pasan.
+- `build/benchmark` imprime la tabla de tiempos y el punto de cruce, y guarda los datos en `resultados/tiempos.csv`. Tarda unos minutos.
+
+- `build/graficar` lee `resultados/tiempos.csv` y genera `resultados/grafica_tiempos.svg` (se abre en cualquier navegador y se puede insertar en Word) y `resultados/tabla_tiempos.md`. Además imprime el punto de cruce y el exponente empírico de cada algoritmo (pendiente en escala log-log).
 
 ## 6. Organización del equipo
 
@@ -85,4 +133,4 @@ Se emplean ramas independientes para organizar el trabajo de cada integrante. Lo
 
 El equipo documentará las herramientas de inteligencia artificial utilizadas como apoyo para comprender conceptos, resolver dudas técnicas, depurar errores y mejorar la documentación.
 
-Todos los integrantes deben comprender y ser capaces de explicar el código y las decisiones de implementación realizadas durante el desarrollo de la práctica.
+Todos los integrantes deben comprender y ser capaces de explicar el código y las decisiones de implementación realizadas durante el desarrollo de la práctica.
