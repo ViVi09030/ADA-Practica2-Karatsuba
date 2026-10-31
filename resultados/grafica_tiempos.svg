@@ -1,0 +1,76 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='700' height='460' font-family='Arial' font-size='12'>
+<rect width='100%' height='100%' fill='white'/>
+<line x1='70' x2='670' y1='400' y2='400' stroke='#ddd'/>
+<text x='64' y='404' text-anchor='end'>1e-2</text>
+<line x1='70' x2='670' y1='352.5' y2='352.5' stroke='#ddd'/>
+<text x='64' y='356.5' text-anchor='end'>1e-1</text>
+<line x1='70' x2='670' y1='305' y2='305' stroke='#ddd'/>
+<text x='64' y='309' text-anchor='end'>1e0</text>
+<line x1='70' x2='670' y1='257.5' y2='257.5' stroke='#ddd'/>
+<text x='64' y='261.5' text-anchor='end'>1e1</text>
+<line x1='70' x2='670' y1='210' y2='210' stroke='#ddd'/>
+<text x='64' y='214' text-anchor='end'>1e2</text>
+<line x1='70' x2='670' y1='162.5' y2='162.5' stroke='#ddd'/>
+<text x='64' y='166.5' text-anchor='end'>1e3</text>
+<line x1='70' x2='670' y1='115' y2='115' stroke='#ddd'/>
+<text x='64' y='119' text-anchor='end'>1e4</text>
+<line x1='70' x2='670' y1='67.5' y2='67.5' stroke='#ddd'/>
+<text x='64' y='71.5' text-anchor='end'>1e5</text>
+<line x1='70' x2='670' y1='20' y2='20' stroke='#ddd'/>
+<text x='64' y='24' text-anchor='end'>1e6</text>
+<line x1='70' x2='70' y1='20' y2='400' stroke='#ddd'/>
+<text x='70' y='416' text-anchor='middle'>2</text>
+<line x1='124.545' x2='124.545' y1='20' y2='400' stroke='#ddd'/>
+<text x='124.545' y='416' text-anchor='middle'>4</text>
+<line x1='179.091' x2='179.091' y1='20' y2='400' stroke='#ddd'/>
+<text x='179.091' y='416' text-anchor='middle'>8</text>
+<line x1='233.636' x2='233.636' y1='20' y2='400' stroke='#ddd'/>
+<text x='233.636' y='416' text-anchor='middle'>16</text>
+<line x1='288.182' x2='288.182' y1='20' y2='400' stroke='#ddd'/>
+<text x='288.182' y='416' text-anchor='middle'>32</text>
+<line x1='342.727' x2='342.727' y1='20' y2='400' stroke='#ddd'/>
+<text x='342.727' y='416' text-anchor='middle'>64</text>
+<line x1='397.273' x2='397.273' y1='20' y2='400' stroke='#ddd'/>
+<text x='397.273' y='416' text-anchor='middle'>128</text>
+<line x1='451.818' x2='451.818' y1='20' y2='400' stroke='#ddd'/>
+<text x='451.818' y='416' text-anchor='middle'>256</text>
+<line x1='506.364' x2='506.364' y1='20' y2='400' stroke='#ddd'/>
+<text x='506.364' y='416' text-anchor='middle'>512</text>
+<line x1='560.909' x2='560.909' y1='20' y2='400' stroke='#ddd'/>
+<text x='560.909' y='416' text-anchor='middle'>1024</text>
+<line x1='615.455' x2='615.455' y1='20' y2='400' stroke='#ddd'/>
+<text x='615.455' y='416' text-anchor='middle'>2048</text>
+<line x1='670' x2='670' y1='20' y2='400' stroke='#ddd'/>
+<text x='670' y='416' text-anchor='middle'>4096</text>
+<rect x='70' y='20' width='600' height='380' fill='none' stroke='black'/>
+<text x='370' y='450' text-anchor='middle'>Numero de digitos n</text>
+<text transform='translate(18,210) rotate(-90)' text-anchor='middle'>Tiempo por multiplicacion (microsegundos)</text>
+<polyline fill='none' stroke='#c0392b' stroke-width='2' points='70,357.931 124.545,352.55 179.091,335.616 233.636,314.856 288.182,290.613 342.727,259.665 397.273,234.016 451.818,205.545 506.364,176.065 560.909,147.741 615.455,118.922 670,89.0177 '/>
+<circle cx='70' cy='357.931' r='3.5' fill='#c0392b'/>
+<circle cx='124.545' cy='352.55' r='3.5' fill='#c0392b'/>
+<circle cx='179.091' cy='335.616' r='3.5' fill='#c0392b'/>
+<circle cx='233.636' cy='314.856' r='3.5' fill='#c0392b'/>
+<circle cx='288.182' cy='290.613' r='3.5' fill='#c0392b'/>
+<circle cx='342.727' cy='259.665' r='3.5' fill='#c0392b'/>
+<circle cx='397.273' cy='234.016' r='3.5' fill='#c0392b'/>
+<circle cx='451.818' cy='205.545' r='3.5' fill='#c0392b'/>
+<circle cx='506.364' cy='176.065' r='3.5' fill='#c0392b'/>
+<circle cx='560.909' cy='147.741' r='3.5' fill='#c0392b'/>
+<circle cx='615.455' cy='118.922' r='3.5' fill='#c0392b'/>
+<circle cx='670' cy='89.0177' r='3.5' fill='#c0392b'/>
+<polyline fill='none' stroke='#2471a3' stroke-width='2' points='70,306.693 124.545,283.397 179.091,256.982 233.636,232.779 288.182,209.767 342.727,186.179 397.273,163.431 451.818,139.635 506.364,117.31 560.909,95.037 615.455,72.3241 670,49.3878 '/>
+<circle cx='70' cy='306.693' r='3.5' fill='#2471a3'/>
+<circle cx='124.545' cy='283.397' r='3.5' fill='#2471a3'/>
+<circle cx='179.091' cy='256.982' r='3.5' fill='#2471a3'/>
+<circle cx='233.636' cy='232.779' r='3.5' fill='#2471a3'/>
+<circle cx='288.182' cy='209.767' r='3.5' fill='#2471a3'/>
+<circle cx='342.727' cy='186.179' r='3.5' fill='#2471a3'/>
+<circle cx='397.273' cy='163.431' r='3.5' fill='#2471a3'/>
+<circle cx='451.818' cy='139.635' r='3.5' fill='#2471a3'/>
+<circle cx='506.364' cy='117.31' r='3.5' fill='#2471a3'/>
+<circle cx='560.909' cy='95.037' r='3.5' fill='#2471a3'/>
+<circle cx='615.455' cy='72.3241' r='3.5' fill='#2471a3'/>
+<circle cx='670' cy='49.3878' r='3.5' fill='#2471a3'/>
+<text x='82' y='40' fill='#c0392b'>Clasica</text>
+<text x='82' y='58' fill='#2471a3'>Karatsuba</text>
+</svg>
