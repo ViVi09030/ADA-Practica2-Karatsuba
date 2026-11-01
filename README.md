@@ -130,5 +130,3 @@ Se emplean ramas independientes para organizar el trabajo de cada integrante. Lo
 ## 8. Uso ético de inteligencia artificial
 
 El equipo documentará las herramientas de inteligencia artificial utilizadas como apoyo para comprender conceptos, resolver dudas técnicas, depurar errores y mejorar la documentación.
-
-Todos los integrantes deben comprender y ser capaces de explicar el código y las decisiones de implementación realizadas durante el desarrollo de la práctica.
