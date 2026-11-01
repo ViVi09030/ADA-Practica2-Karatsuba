@@ -42,6 +42,7 @@
 build/
 Build/
 build-*/
+cmake-build-*/
 
 # CMake generated files
 CMakeFiles/
@@ -72,4 +73,4 @@ Testing/
 
 # Configuracion de editores
 .vscode/
-.idea/
+.idea/

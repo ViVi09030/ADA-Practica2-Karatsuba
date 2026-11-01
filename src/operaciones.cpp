@@ -12,6 +12,7 @@
 */
 
 #include "operaciones.h"
+#include <algorithm>
 
 string normalizar(const string& A) {
     // Busca el primer caracter diferente de 0
@@ -52,11 +53,14 @@ string sumar(const string& A, const string& B) {
         }
 
         // Se usa "% 10" para obtener el dígito que se debe guardar
-        resultado = char('0' + suma % 10) + resultado;
+        resultado.push_back(char('0' + suma % 10));
 
         // Se usa "/ 10" para obtener el acarreo
         acarreo = suma / 10;
     }
+
+    // Los digitos se agregaron del menos al mas significativo
+    reverse(resultado.begin(), resultado.end());
 
     return normalizar(resultado);
 }
@@ -93,11 +97,14 @@ string restar(const string& A, const string& B) {
         // Calcula la diferencia
         int diferencia = digitoA - digitoB;
 
-        resultado = char('0' + diferencia) + resultado;
+        resultado.push_back(char('0' + diferencia));
 
         i--;
         j--;
     }
+
+    // Los digitos se agregaron del menos al mas significativo
+    reverse(resultado.begin(), resultado.end());
 
     return normalizar(resultado);
 }
@@ -126,4 +133,4 @@ pair<string, string> partir(const string& A, int m) {
     string baja = A.substr(longitud - m, m);
 
     return {normalizar(alta), normalizar(baja)};
-}
+}
